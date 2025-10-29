@@ -8,6 +8,7 @@ RUN npm run build -- --configuration=production
 
 # Stage 2: Serve with Nginx
 FROM nginx:alpine
+COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=build /app/dist/banking-system-frontend /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80
