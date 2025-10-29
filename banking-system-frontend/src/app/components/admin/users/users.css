@@ -1,0 +1,91 @@
+/* Container for all user cards */
+.users-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Individual user card styling */
+.user-card {
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.user-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Photo styling */
+.user-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #2980b9;
+}
+
+/* User info */
+.user-details {
+  width: 100%;
+  text-align: center;
+}
+
+.user-details h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #2c3e50;
+}
+
+.user-details p {
+  margin: 0.4rem 0;
+  font-size: 0.95rem;
+  color: #7f8c8d;
+  word-break: break-word;
+}
+
+/* Status badges */
+.user-status {
+  margin-top: 10px;
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-active {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-inactive {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.status-pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+/* Responsive adjustments for smaller screens */
+@media(max-width: 768px) {
+  .users-cards-container {
+    justify-content: center;
+  }
+  .user-card {
+    width: 90%;
+  }
+}

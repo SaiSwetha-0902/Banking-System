@@ -1,0 +1,20 @@
+
+  <!-- Sidebar -->
+  <div class="dash">
+    <div class="sidebar">
+    
+        <a [routerLink]="['profile',userId]" routerLinkActive="active">Profile</a>
+  
+      
+        <a [routerLink]="['accounts',userId]" routerLinkActive="active">Accounts</a>
+      
+
+        <a [routerLink]="['transactions',userId]" routerLinkActive="active">Transactions</a>
+     
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,117 @@
+<div class="account-container">
+
+  <!-- 🔹 Show Active Accounts -->
+  <section *ngFor="let account of accounts" class="account-panel">
+    <div class="account-header">
+      <div class="account-id">Account #{{ account.accountNumber }}</div>
+      <div class="account-type">{{ account.accountType }}</div>
+      <div class="account-balance">{{ account.balance | currency:'INR':'symbol':'1.2-2' }}</div>
+      <div class="account-status" [ngClass]="account.status.toLowerCase()">{{ account.status }}</div>
+    </div>
+
+    <div class="account-actions">
+      <!-- Deposit -->
+      <div class="action-group">
+        <label>Deposit</label>
+        <input type="number" [(ngModel)]="accountActions[account.accountNumber].depositAmount" placeholder="Enter amount" />
+        <button class="btn btn-success" (click)="deposit(account)">Deposit</button>
+      </div>
+
+      <hr />
+
+      <!-- Withdraw -->
+      <div class="action-group">
+        <label>Withdraw</label>
+        <input type="number" [(ngModel)]="accountActions[account.accountNumber].withdrawAmount" placeholder="Enter amount" />
+        <button class="btn btn-danger" (click)="withdraw(account)">Withdraw</button>
+      </div>
+
+      <hr />
+
+      <!-- Transfer -->
+      <div class="action-group">
+        <label>Transfer To</label>
+        <input type="text" [(ngModel)]="accountActions[account.accountNumber].transferTo" placeholder="Recipient Account Number" />
+
+        <label>Amount</label>
+        <input type="number" [(ngModel)]="accountActions[account.accountNumber].transferAmount" placeholder="Enter amount" />
+        <button class="btn btn-primary" (click)="transfer(account)">Transfer</button>
+      </div>
+    </div>
+  </section>
+
+<!-- 🔹 Show Pending Requests -->
+<section *ngIf="hasPendingRequest" class="pending-section">
+  <h3>Account Request Pending</h3>
+  <p>Your account creation request is under review. Please wait for admin approval.</p>
+
+  <div class="pending-list">
+    <ng-container *ngFor="let req of accountRequests">
+      <div *ngIf="req.status === 'PENDING'" class="pending-card">
+        <p><strong>Type:</strong> {{ req.accountType }}</p>
+        <p><strong>Deposit:</strong> {{ req.initialDeposit | currency:'INR' }}</p>
+        <p><strong>Status:</strong> {{ req.status }}</p>
+      </div>
+    </ng-container>
+  </div>
+</section>
+
+
+  <!-- 🔹 Create Account Form -->
+  <section class="create-account-panel" *ngIf="!hasPendingRequest">
+    <div *ngIf="!hasAccount('SAVINGS')" class="create-account-section">
+      <h3>Create Savings Account</h3>
+      <form (ngSubmit)="createAccount('SAVINGS')">
+        <label>Branch Name</label>
+        <input type="text" [(ngModel)]="newAccount.branchName" name="branchName" required />
+
+        <label>IFSC Code</label>
+        <input type="text" [(ngModel)]="newAccount.ifscCode" name="ifscCode" required />
+
+        <label>Nominee Name</label>
+        <input type="text" [(ngModel)]="newAccount.nomineeName" name="nomineeName" />
+
+        <label>Nominee Relation</label>
+        <input type="text" [(ngModel)]="newAccount.nomineeRelation" name="nomineeRelation" />
+
+        <label>Initial Deposit (Min ₹{{ MIN_BALANCE }})</label>
+        <input type="number" [(ngModel)]="newAccount.initialDeposit" name="initialDeposit" required />
+
+        <label><input type="checkbox" [(ngModel)]="newAccount.debitCardRequired" name="debitCardRequired" /> Debit Card Required</label>
+        <label><input type="checkbox" [(ngModel)]="newAccount.netBankingEnabled" name="netBankingEnabled" checked /> Enable Net Banking</label>
+
+        <button class="btn btn-create" type="submit">Submit Savings Account Request</button>
+      </form>
+    </div>
+
+    <div *ngIf="!hasAccount('CURRENT')" class="create-account-section">
+      <h3>Create Current Account</h3>
+      <form (ngSubmit)="createAccount('CURRENT')">
+        <label>Branch Name</label>
+        <input type="text" [(ngModel)]="newAccount.branchName" name="branchName2" required />
+
+        <label>IFSC Code</label>
+        <input type="text" [(ngModel)]="newAccount.ifscCode" name="ifscCode2" required />
+
+        <label>Nominee Name</label>
+        <input type="text" [(ngModel)]="newAccount.nomineeName" name="nomineeName2" />
+
+        <label>Nominee Relation</label>
+        <input type="text" [(ngModel)]="newAccount.nomineeRelation" name="nomineeRelation2" />
+
+        <label>Initial Deposit (optional)</label>
+        <input type="number" [(ngModel)]="newAccount.initialDeposit" name="initialDeposit2" />
+
+        <label><input type="checkbox" [(ngModel)]="newAccount.debitCardRequired" name="debitCardRequired2" /> Debit Card Required</label>
+        <label><input type="checkbox" [(ngModel)]="newAccount.netBankingEnabled" name="netBankingEnabled2" checked /> Enable Net Banking</label>
+
+        <button class="btn btn-create" type="submit">Submit Current Account Request</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Empty state -->
+  <section *ngIf="accounts.length === 0 && accountRequests.length === 0 && !hasPendingRequest" class="empty-section">
+    <p>No active accounts yet. You can create a new Savings or Current account below.</p>
+  </section>
+</div>

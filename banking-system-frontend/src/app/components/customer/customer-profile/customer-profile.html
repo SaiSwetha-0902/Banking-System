@@ -1,0 +1,39 @@
+<div class="dashboard-container" *ngIf="user">
+  <section class="profile-section">
+    <div class="profile-image">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwgHAqIUkUR92_mtswDCYJD99s-KEpEhP4dA&s" alt="{{ user.username }} photo" />
+    </div>
+    <div class="profile-details">
+      <h2>{{ user.username }}</h2>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>Phone:</strong> {{ user.phone }}</p>
+      <p><strong>Status:</strong> {{ user.status }}</p>
+      <p><strong>Role:</strong> Customer</p>
+      <p><strong>Address:</strong> 123 Main Street, City, Country</p>
+      <p><strong>Joined:</strong> January 1, 2025</p>
+      <p><strong>Member Level:</strong> Gold</p>
+    </div>
+  </section>
+
+  <section class="accounts-section">
+    <div *ngFor="let account of accounts" class="account-row">
+      <div class="account-type-status">
+        <span class="account-type">{{ account.accountType }} ACCOUNT</span>
+        <span class="account-status" [ngClass]="account.status.toLowerCase()">{{ account.status }}</span>
+      </div>
+      <div class="account-details">
+        <p><strong>Account #:</strong> {{ account.accountNumber }}</p>
+        <p><strong>Balance:</strong> {{ account.balance | currency:'INR':'symbol':'1.2-2' }}</p>
+        <p><strong>Branch:</strong> {{ account.branchName }}</p>
+        <p><strong>IFSC:</strong> {{ account.ifscCode }}</p>
+      </div>
+      <div class="account-details">
+        <p><strong>Debit Card:</strong> {{ account.debitCardRequired ? "Yes" : "No" }}</p>
+        <p><strong>NetBanking:</strong> {{ account.netBankingEnabled ? "Enabled" : "Disabled" }}</p>
+        <ng-container *ngIf="account.nomineeName">
+          <p><strong>Nominee:</strong> {{ account.nomineeName }}<span *ngIf="account.nomineeRelation"> ({{ account.nomineeRelation }})</span></p>
+        </ng-container>
+      </div>
+    </div>
+  </section>
+</div>

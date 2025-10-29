@@ -1,0 +1,18 @@
+<div class="users-cards-container">
+  <div class="user-card" *ngFor="let user of users">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwgHAqIUkUR92_mtswDCYJD99s-KEpEhP4dA&s" alt="{{user.username}} Photo" class="user-photo" />
+    <div class="user-details">
+      <h4>{{user.username}}</h4>
+      <p>{{user.email}}</p>
+      <p>{{user.phone}}</p>
+      <div 
+        class="user-status" 
+        [ngClass]="{
+          'status-active': user.status === 'ACTIVE',
+          'status-inactive': user.status === 'INACTIVE',
+        }">
+        {{user.status}}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div *ngIf="suspiciousTransactions.length > 0" class="alert-container">
+  <div class="alert-banner">
+    <h4>⚠️ Suspicious Transactions Detected</h4>
+    <ul>
+      <li *ngFor="let txn of suspiciousTransactions">
+        <strong>{{ txn.transactionId }}</strong> — {{ txn.suspiciousReason || 'Unknown reason' }}
+      </li>
+    </ul>
+  </div>
+</div>

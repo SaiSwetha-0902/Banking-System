@@ -1,0 +1,34 @@
+
+
+<table class="transactions-table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>From Account</th>
+      <th>To Account</th>
+      <th>Amount</th>
+      <th>Type</th>
+      <th>Status</th>
+      <th>Description</th>
+      <th>Suspicious</th>
+       <th *ngIf="hasSuspiciousTransactions()"> Suspicious Reason</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let txn of transactions">
+     <td data-label="ID">{{ txn.transactionId }}</td>
+<td data-label="From Account">{{ txn.fromAccountNumber }}</td>
+<td data-label="To Account">{{ txn.toAccountNumber }}</td>
+<td data-label="Amount">{{ txn.amount | currency:'INR' }}</td>
+<td data-label="Type">{{ txn.type }}</td>
+<td data-label="Status">{{ txn.status }}</td>
+<td data-label="Description">{{ txn.description }}</td>
+<td data-label="Suspicious">{{ txn.isSuspicious }}</td>
+<td *ngIf="hasSuspiciousTransactions()" data-label="Suspicious Reason">
+  <span *ngIf="txn?.isSuspicious">{{ txn.suspiciousReason }}</span>
+</td>
+
+    </tr>
+  </tbody>
+</table>
+<p *ngIf="!transactions || transactions.length === 0">No transactions available.</p>

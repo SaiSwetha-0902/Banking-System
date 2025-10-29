@@ -1,0 +1,98 @@
+<div class="transactions-container" *ngIf="savingsTransactions.length > 0">
+  <!-- Loading indicator -->
+  <div *ngIf="isLoading">Loading transactions...</div>
+
+  <!-- Transactions content -->
+  <div *ngIf="!isLoading && user">
+    <h2>{{ user.username }}'s Transactions</h2>
+
+    <!-- 🔸 SAVINGS -->
+    <div class="transaction-section" *ngIf="savingsTransactions.length > 0">
+      <h3>Savings Account Transactions</h3>
+
+      <h4>Deposits</h4>
+      <table>
+        <tr><th>ID</th><th>Amount</th><th>Description</th><th>Date</th><th>Status</th></tr>
+        <tr *ngFor="let txn of savingsDeposits">
+          <td>{{ txn.transactionId }}</td>
+          <td>{{ txn.amount | currency:'INR' }}</td>
+          <td>{{ txn.description }}</td>
+          <td>{{ txn.timestamp | date:'short' }}</td>
+          <td>{{ txn.status }}</td>
+        </tr>
+      </table>
+
+      <h4>Withdrawals</h4>
+      <table>
+        <tr><th>ID</th><th>Amount</th><th>Description</th><th>Date</th><th>Status</th></tr>
+        <tr *ngFor="let txn of savingsWithdrawals">
+          <td>{{ txn.transactionId }}</td>
+          <td>{{ txn.amount | currency:'INR' }}</td>
+          <td>{{ txn.description }}</td>
+          <td>{{ txn.timestamp | date:'short' }}</td>
+          <td>{{ txn.status }}</td>
+        </tr>
+      </table>
+
+      <h4>Transfers</h4>
+      <table>
+        <tr><th>ID</th><th>To Account</th><th>Amount</th><th>Description</th><th>Date</th><th>Status</th></tr>
+        <tr *ngFor="let txn of savingsTransfers">
+          <td>{{ txn.transactionId }}</td>
+          <td>{{ txn.toAccountNumber }}</td>
+          <td>{{ txn.amount | currency:'INR' }}</td>
+          <td>{{ txn.description }}</td>
+          <td>{{ txn.timestamp | date:'short' }}</td>
+          <td>{{ txn.status }}</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 🔸 CURRENT -->
+    <div class="transaction-section" *ngIf="currentTransactions.length > 0">
+      <h3>Current Account Transactions</h3>
+
+      <h4>Deposits</h4>
+      <table>
+        <tr><th>ID</th><th>Amount</th><th>Description</th><th>Date</th><th>Status</th></tr>
+        <tr *ngFor="let txn of currentDeposits">
+          <td>{{ txn.transactionId }}</td>
+          <td>{{ txn.amount | currency:'INR' }}</td>
+          <td>{{ txn.description }}</td>
+          <td>{{ txn.timestamp | date:'short' }}</td>
+          <td>{{ txn.status }}</td>
+        </tr>
+      </table>
+
+      <h4>Withdrawals</h4>
+      <table>
+        <tr><th>ID</th><th>Amount</th><th>Description</th><th>Date</th><th>Status</th></tr>
+        <tr *ngFor="let txn of currentWithdrawals">
+          <td>{{ txn.transactionId }}</td>
+          <td>{{ txn.amount | currency:'INR' }}</td>
+          <td>{{ txn.description }}</td>
+          <td>{{ txn.timestamp | date:'short' }}</td>
+          <td>{{ txn.status }}</td>
+        </tr>
+      </table>
+
+      <h4>Transfers</h4>
+      <table>
+        <tr><th>ID</th><th>To Account</th><th>Amount</th><th>Description</th><th>Date</th><th>Status</th></tr>
+        <tr *ngFor="let txn of currentTransfers">
+          <td>{{ txn.transactionId }}</td>
+          <td>{{ txn.toAccountNumber }}</td>
+          <td>{{ txn.amount | currency:'INR' }}</td>
+          <td>{{ txn.description }}</td>
+          <td>{{ txn.timestamp | date:'short' }}</td>
+          <td>{{ txn.status }}</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Message if no transactions -->
+    <div *ngIf="savingsTransactions.length === 0 && currentTransactions.length === 0">
+      No transactions available.
+    </div>
+  </div>
+</div>

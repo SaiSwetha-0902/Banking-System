@@ -1,0 +1,9 @@
+<div class="login-container">
+<h2>Register</h2>
+<input type="email" [(ngModel)]="email" placeholder="Email">
+<input type="password" [(ngModel)]="password" placeholder="Password">
+<input type="password" [(ngModel)]="confirmPassword" placeholder="Confirm Password">
+<button (click)="register()">Register</button>
+<p>{{ message }}</p>
+</div>
+<router-outlet></router-outlet>

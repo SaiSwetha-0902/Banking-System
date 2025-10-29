@@ -1,0 +1,22 @@
+<div class="pending-requests">
+  <h2>Pending Account Requests</h2>
+  <table>
+    <tr>
+      <th>Request ID</th>
+      <th>User ID</th>
+      <th>Type</th>
+      <th>Deposit</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let r of pendingRequests">
+      <td>{{r.requestId}}</td>
+      <td>{{r.userId}}</td>
+      <td>{{r.accountType}}</td>
+      <td>{{r.initialDeposit}}</td>
+      <td>
+        <button (click)="updateStatus(r.requestId, 'APPROVED')">Approve</button>
+        <button (click)="updateStatus(r.requestId, 'REJECTED')">Reject</button>
+      </td>
+    </tr>
+  </table>
+</div>

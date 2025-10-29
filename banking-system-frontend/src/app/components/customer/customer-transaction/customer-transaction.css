@@ -1,0 +1,99 @@
+/* Container styling */
+.transactions-container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #fefefe;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 800px;
+  margin-left: 100px;
+}
+
+/* Section headers */
+.transaction-section {
+  margin-top: 30px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Headings */
+.transactions-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.transaction-section h3 {
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.transaction-section h4 {
+  margin: 15px 0 8px 0;
+  color: #555;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table th, table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+}
+
+table th {
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: 600;
+}
+
+table tr:hover {
+  background-color: #f1f7ff;
+}
+
+/* Status colors */
+td:contains("SUCCESS") {
+  color: green;
+  font-weight: bold;
+}
+
+td:contains("FAILED") {
+  color: red;
+  font-weight: bold;
+}
+
+td:contains("PENDING") {
+  color: orange;
+  font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  table th, table td {
+    padding: 8px 6px;
+    font-size: 12px;
+  }
+
+  .transactions-container {
+    padding: 10px;
+  }
+
+  .transaction-section {
+    padding: 10px;
+  }
+}
+
+/* Optional: Add subtle hover effect for table rows */
+table tr {
+  transition: background-color 0.2s ease;
+}

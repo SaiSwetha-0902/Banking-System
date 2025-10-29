@@ -1,0 +1,19 @@
+<h3>Accounts Balance Overview</h3>
+<canvas #barChart></canvas>
+
+<h3>Accounts</h3>
+
+<div class="account-container">
+<div *ngFor="let acc of accounts" class="account-card">
+  <h4>Account No: {{acc.accountNumber}}</h4>
+  <p>Owner ID: {{acc.userId}}</p>
+  <p>Account Type: {{acc.accountType}}</p>
+  <p>Balance: {{acc.balance | currency}}</p>
+  <p>Status: {{acc.status}}</p>
+
+  <div class="buttons">
+    <button *ngIf="acc.status === 'ACTIVE'" (click)="freezeAccount(acc)">Freeze</button>
+    <button *ngIf="acc.status === 'FROZEN'" (click)="unfreezeAccount(acc)">Unfreeze</button>
+  </div>
+</div>
+</div>

@@ -1,0 +1,24 @@
+<h3>Audit Logs</h3>
+
+<table class="audit-table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>USERID</th>
+      <th>Action</th>
+      <th>Performed By</th>
+      <th>Details</th>
+      <th>Timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let log of auditLogs">
+      <td>{{ log.id }}</td>
+      <td>{{log.userId}}</td>
+      <td>{{ log.action }}</td>
+      <td>{{ log.performedBy }}</td>
+      <td>{{ log.details }}</td>
+      <td>{{ log.timestamp | date:'short' }}</td>
+    </tr>
+  </tbody>
+</table>

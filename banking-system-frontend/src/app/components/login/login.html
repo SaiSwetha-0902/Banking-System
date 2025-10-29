@@ -1,0 +1,17 @@
+<div class="login-page-container">
+  <div class="login-form-side">
+    <div class="login-container">
+      <!-- your login form HTML as before -->
+      <h2>Login</h2>
+  <input type="email" [(ngModel)]="request.email" placeholder="Email" />
+  <br>
+  <input type="password" [(ngModel)]="request.password" placeholder="Password" />
+  <button (click)="login()">Login</button>
+  <p>{{ message }}</p>
+
+  <p>
+    New user?
+    <a routerLink="/register">Register here</a>
+  </p>
+</div>
+

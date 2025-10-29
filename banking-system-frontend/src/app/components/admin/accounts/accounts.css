@@ -1,0 +1,42 @@
+.account-card {
+  background: white;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.account-container {
+  display: flex;
+  flex-wrap: wrap;          /* allow wrapping on smaller screens */
+  gap: 20px;                /* space between cards */
+  justify-content: flex-start; /* or center / space-between */
+  margin-top: 10px;
+}
+.account-card h4 {
+  margin-top: 0;
+}
+
+p {
+  margin: 5px 0;
+}
+
+.buttons button {
+  padding: 6px 12px;
+  margin-right: 10px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.buttons button:hover {
+  background-color: #2980b9;
+}
+canvas {
+  width: 600px !important;
+  height: 300px !important;
+  display: block;
+  margin: 0 auto; /* center the chart */
+}
+

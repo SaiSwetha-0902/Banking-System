@@ -1,0 +1,58 @@
+<header class="header">
+  <nav class="nav">
+    <img style="height: 70px;width: 60px;" src="https://png.pngtree.com/png-vector/20220724/ourmid/pngtree-secure-online-banking-icon-icon-secure-payment-security-vector-png-image_38128134.png">
+    <a  class="nav-item" routerLink="/">
+       Secure Bank Of India
+    </a>
+
+    <a *ngIf="!isLoggedIn" class="nav-item" routerLink="/login">
+      Login
+    </a>
+
+    <a *ngIf="isLoggedIn" class="nav-item" (click)="onLogout()" style="cursor:pointer;">
+      Logout
+    </a>
+
+    <a class="nav-item" routerLink="/contact-us">Contact Us</a>
+    <a class="nav-item" routerLink="/about-us">About Us</a>
+  </nav>
+</header>
+
+
+<section *ngIf="showStaticContent" class="hero-section">
+  <div class="hero-content">
+    <h1>Welcome to Secure Bank Online</h1>
+    <p>Your trusted partner for easy, secure, and efficient banking anywhere, anytime.</p>
+    <button routerLink="/register" class="cta-button">Get Started</button>
+  </div>
+  <div class="hero-images">
+    <img src="https://www.shutterstock.com/image-vector/online-banking-process-scheme-on-600nw-569170318.jpg"
+         alt="Online Banking on Mobile" />
+    <img src="https://media.istockphoto.com/id/1351373355/vector/online-banking-showing-on-mobile-phone.jpg?s=612x612&w=0&k=20&c=xTd-bloxdTzpZEvX_cc8xQRCvR9ExbzofSizT6GSpng="
+         alt="Online Banking Process Scheme" />
+  </div>
+</section>
+
+<section *ngIf="showStaticContent" class="why-us-section">
+  <h2>Why Choose Secure Bank?</h2>
+  <div class="benefits">
+    <div class="benefit-item">
+      <h3>Trusted & Secure</h3>
+      <p>We prioritize your security with state-of-the-art encryption and fraud detection protocols.</p>
+    </div>
+    <div class="benefit-item">
+      <h3>24/7 Convenient Access</h3>
+      <p>Bank anytime, anywhere with our easy-to-use online and mobile banking platforms.</p>
+    </div>
+    <div class="benefit-item">
+      <h3>Personalized Service</h3>
+      <p>Our dedicated advisors are ready to help you plan and meet your financial goals.</p>
+    </div>
+  </div>
+  <div class="testimonial">
+    <blockquote>
+      “Secure Bank has transformed how I manage my money — intuitive tools and excellent support!” <br />
+      <span>- Jane D., Happy Customer</span>
+    </blockquote>
+  </div>
+</section>

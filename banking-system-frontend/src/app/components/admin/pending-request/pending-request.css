@@ -1,0 +1,107 @@
+.pending-requests {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 24px;
+  background: #fafbfc;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+
+.pending-requests h2 {
+  font-size: 1.6rem;
+  margin-bottom: 18px;
+  color: #333;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.pending-requests table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.pending-requests th,
+.pending-requests td {
+  padding: 12px 8px;
+  text-align: left;
+}
+
+.pending-requests th {
+  background-color: #2264e6;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #174ebe;
+}
+
+.pending-requests tr:nth-child(even) {
+  background-color: #f2f5fa;
+}
+
+.pending-requests tr:hover {
+  background-color: #e1edfb;
+}
+
+.pending-requests button {
+  padding: 7px 16px;
+  margin-right: 8px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  transition: background 0.22s;
+}
+
+.pending-requests button:first-child {
+  background-color: #21ba45;
+}
+
+.pending-requests button:first-child:hover {
+  background-color: #199e38;
+}
+
+.pending-requests button:last-child {
+  background-color: #db2828;
+}
+
+.pending-requests button:last-child:hover {
+  background-color: #b71c1c;
+}
+
+@media(max-width: 600px) {
+  .pending-requests {
+    padding: 12px;
+  }
+  .pending-requests table,
+  .pending-requests thead,
+  .pending-requests tbody,
+  .pending-requests th,
+  .pending-requests td,
+  .pending-requests tr {
+    display: block;
+    width: 100%;
+  }
+  .pending-requests th {
+    display: none;
+  }
+  .pending-requests tr {
+    margin-bottom: 15px;
+    border-bottom: 2px solid #eee;
+  }
+  .pending-requests td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+  .pending-requests td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 18px;
+    top: 12px;
+    font-weight: 600;
+    color: #2264e6;
+    text-align: left;
+  }
+}

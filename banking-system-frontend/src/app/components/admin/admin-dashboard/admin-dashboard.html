@@ -1,0 +1,26 @@
+
+
+  <!-- Sidebar -->
+  <div class="admin">
+ 
+    <div class="sidebar">
+        <a [routerLink]="['users']" routerLinkActive="active">Users</a>
+  
+      
+        <a [routerLink]="['accounts']" routerLinkActive="active">Accounts</a>
+
+        <a [routerLink]="['transactions']" routerLinkActive="active">Transactions</a>
+
+        <a [routerLink]="['audit-logs']" routerLinkActive="active">Audit-Logs</a>
+
+         <a [routerLink]="['pending']" routerLinkActive="active">Account Requests</a>
+   
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    
+        <app-alert></app-alert>
+    <router-outlet></router-outlet>
+  </div>
+</div>
