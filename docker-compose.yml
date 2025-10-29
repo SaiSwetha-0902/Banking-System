@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  frontend:
+    image: swethamekala/banking-frontend:latest
+    ports:
+      - "80:80"
+    restart: always
+
+  backend:
+    image: swethamekala/banking-backend:latest
+    ports:
+      - "8050:8050"
+    restart: always
