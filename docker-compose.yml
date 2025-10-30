@@ -1,13 +1,15 @@
-version: "3.8"
+version: "3.9"
 services:
   frontend:
     image: swethamekala/banking-frontend:latest
+    container_name: banking-system-backend
     ports:
       - "80:80"
     restart: always
 
   backend:
     image: swethamekala/banking-backend:latest
+    container_name: banking-system-frontend
     ports:
       - "8050:8050"
     restart: always
